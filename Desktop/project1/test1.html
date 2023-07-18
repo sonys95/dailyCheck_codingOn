@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>스케줄 등록 달력</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+      }
+      .current-month {
+        color: black;
+      }
+      .other-month {
+        color: gray;
+      }
+      .selected {
+        background-color: yellow;
+      }
+      .schedule-item {
+        margin-top: 5px;
+        font-size: 12px;
+      }
+      #schedule-list {
+        margin-top: 20px;
+      }
+      .schedule-color {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>스케줄 등록 달력</h2>
+    <div>
+      <button id="prev-month">이전 달</button>
+      <button id="next-month">다음 달</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>일</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th>토</th>
+        </tr>
+      </thead>
+      <tbody id="calendar-body"></tbody>
+    </table>
+
+    <div id="schedule-modal" style="display: none">
+      <h3>스케줄 등록</h3>
+      <input type="date" id="schedule-date" disabled /><br />
+      <textarea id="schedule-text" rows="4" cols="30"></textarea><br />
+      <button id="schedule-submit">등록</button>
+      <button id="schedule-cancel">취소</button>
+    </div>
+
+    <div id="schedule-list">
+      <h3>스케줄 목록</h3>
+      <ul id="schedule-list-items"></ul>
+    </div>
+
+    <script>
+      var scheduleData = {};
+      var currentYear;
+      var currentMonth;
+
+      // 달력을 그리는 함수
+      function drawCalendar(year, month) {
+        var calendarBody = document.getElementById("calendar-body");
+        calendarBody.innerHTML = "";
+
+        var firstDay = new Date(year, month, 1);
+        var lastDay = new Date(year, month + 1, 0);
+        var startDate = new Date(firstDay);
+        startDate.setDate(startDate.getDate() - firstDay.getDay());
+        var endDate = new Date(lastDay);
+        endDate.setDate(endDate.getDate() + 6 - lastDay.getDay());
+
+        var date = new Date(startDate);
+
+        while (date <= endDate) {
+          var row = document.createElement("tr");
+
+          for (var i = 0; i < 7; i++) {
+            var cell = document.createElement("td");
+            cell.textContent = date.getDate();
+            cell.dataset.date = date.toISOString().split("T")[0];
+
+            if (date.getMonth() !== month) {
+              cell.classList.add("other-month");
+            } else {
+              cell.classList.add("current-month");
+              cell.addEventListener("click", handleCellClick);
+            }
+
+            var scheduleItem = createScheduleItem(date);
+            if (scheduleItem) {
+              cell.style.backgroundColor = scheduleItem.color;
+            }
+
+            row.appendChild(cell);
+            date.setDate(date.getDate() + 1);
+          }
+
+          calendarBody.appendChild(row);
+        }
+      }
+
+      // 스케줄 아이템 생성
+      function createScheduleItem(date) {
+        var scheduleDate = date.toISOString().split("T")[0];
+        if (scheduleData[scheduleDate]) {
+          return {
+            text: scheduleData[scheduleDate],
+            color: getRandomColor(),
+          };
+        }
+
+        return null;
+      }
+
+      // 랜덤 색상 반환
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // 이전 달 버튼 클릭 이벤트 처리
+      document
+        .getElementById("prev-month")
+        .addEventListener("click", function () {
+          currentMonth--;
+          if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+          }
+          drawCalendar(currentYear, currentMonth);
+        });
+
+      // 다음 달 버튼 클릭 이벤트 처리
+      document
+        .getElementById("next-month")
+        .addEventListener("click", function () {
+          currentMonth++;
+          if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+          }
+          drawCalendar(currentYear, currentMonth);
+        });
+
+      // 셀 클릭 이벤트 처리
+      function handleCellClick(event) {
+        var selectedCell = document.querySelector(".selected");
+        if (selectedCell) {
+          selectedCell.classList.remove("selected");
+        }
+        event.target.classList.add("selected");
+
+        var selectedDate = event.target.dataset.date;
+        console.log("선택된 날짜:", selectedDate);
+
+        openScheduleModal(selectedDate);
+      }
+
+      // 스케줄 모달 창 열기
+      function openScheduleModal(date) {
+        var scheduleModal = document.getElementById("schedule-modal");
+        var scheduleDateInput = document.getElementById("schedule-date");
+        var scheduleText = document.getElementById("schedule-text");
+        var scheduleSubmitBtn = document.getElementById("schedule-submit");
+        var scheduleCancelBtn = document.getElementById("schedule-cancel");
+
+        scheduleDateInput.value = date;
+        scheduleText.value = "";
+
+        scheduleModal.style.display = "block";
+
+        scheduleSubmitBtn.addEventListener("click", handleScheduleSubmit);
+        scheduleCancelBtn.addEventListener("click", handleScheduleCancel);
+      }
+
+      // 스케줄 등록 이벤트 처리
+      function handleScheduleSubmit() {
+        var selectedCell = document.querySelector(".selected");
+        var scheduleDate = selectedCell.dataset.date;
+        var scheduleText = document.getElementById("schedule-text").value;
+
+        if (scheduleText.trim() !== "") {
+          scheduleData[scheduleDate] = scheduleText;
+
+          var scheduleItem = createScheduleItem(new Date(scheduleDate));
+          if (scheduleItem) {
+            selectedCell.style.backgroundColor = scheduleItem.color;
+            addScheduleToList(scheduleItem.color, scheduleText);
+          }
+
+          console.log("스케줄 등록:", scheduleDate, scheduleText);
+        }
+
+        closeScheduleModal();
+      }
+
+      // 스케줄 모달 창 닫기
+      function closeScheduleModal() {
+        var scheduleModal = document.getElementById("schedule-modal");
+        var scheduleSubmitBtn = document.getElementById("schedule-submit");
+        var scheduleCancelBtn = document.getElementById("schedule-cancel");
+
+        scheduleSubmitBtn.removeEventListener("click", handleScheduleSubmit);
+        scheduleCancelBtn.removeEventListener("click", handleScheduleCancel);
+
+        scheduleModal.style.display = "none";
+      }
+
+      // 스케줄 목록에 스케줄 추가
+      function addScheduleToList(color, text) {
+        var scheduleListItems = document.getElementById("schedule-list-items");
+        var listItem = document.createElement("li");
+        var colorIndicator = document.createElement("span");
+        colorIndicator.classList.add("schedule-color");
+        colorIndicator.style.backgroundColor = color;
+        listItem.appendChild(colorIndicator);
+        var scheduleText = document.createElement("span");
+        scheduleText.textContent = text;
+        listItem.appendChild(scheduleText);
+        scheduleListItems.appendChild(listItem);
+      }
+
+      // 초기화
+      function init() {
+        var now = new Date();
+        currentYear = now.getFullYear();
+        currentMonth = now.getMonth();
+        drawCalendar(currentYear, currentMonth);
+      }
+
+      // 페이지 로드 시 초기화 함수 호출
+      window.onload = init;
+    </script>
+  </body>
+</html>
