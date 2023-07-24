@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>유튜브 API를 사용하여 동영상 가져오기</title>
+  </head>
+  <body>
+    <div id="video-container"></div>
+
+    <!-- 유튜브 API 스크립트 -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      // API 클라이언트 로드 완료 후에 호출할 함수 설정
+      function handleClientLoad() {
+        gapi.load("client", initClient);
+      }
+
+      // API 클라이언트 초기화
+      function initClient() {
+        gapi.client
+          .init({
+            apiKey: "AIzaSyC2X6pcSeq072qJGVYQAeDAKCvQyW5GJp0",
+            discoveryDocs: [
+              "https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest",
+            ],
+          })
+          .then(
+            function () {
+              // API가 초기화되면 동영상 정보를 가져오는 함수 호출
+              getVideoInfo();
+            },
+            function (error) {
+              console.error("API 초기화 오류:", error);
+            }
+          );
+      }
+
+      // 동영상 정보 가져오기
+      function getVideoInfo() {
+        gapi.client.youtube.videos
+          .list({
+            part: "snippet",
+            id: "EJ9Uon5liu4",
+          })
+          .then(
+            function (response) {
+              var video = response.result.items[0];
+              var title = video.snippet.title;
+              var description = video.snippet.description;
+              var videoContainer = document.getElementById("video-container");
+              videoContainer.innerHTML =
+                "<h2>" + title + "</h2><p>" + description + "</p>";
+            },
+            function (error) {
+              console.error("동영상 정보 가져오기 오류:", error);
+            }
+          );
+      }
+    </script>
+
+    <!-- API 클라이언트 로드 -->
+    <script
+      async
+      defer
+      src="https://apis.google.com/js/api.js?onload=handleClientLoad"
+    ></script>
+  </body>
+</html>

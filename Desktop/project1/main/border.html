@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/main/css/calendar.css" />
+    <link rel="stylesheet" href="/main/css/quiz.css" />
+    <link rel="stylesheet" href="/main/css/randomImg.css" />
+    <style>
+      
+      @media (min-width: 1000px){
+        @font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+  font-family: 'NanumSquareNeo-Variable';
+}
+        .container{
+        padding: 50px;
+        width: 1100px;
+      }
+      .top{
+       
+        margin-bottom: 10px;
+
+        display: flex;
+        border-bottom: 1px solid;
+      }
+      .logo{
+        margin-right: auto;
+        align-items: center;
+        display: flex;
+      }
+      .nav{
+            margin-left: 20px;
+      }
+      .menu1{
+        list-style: none;
+        display: flex;
+        padding: 10px;
+      }
+      .menu2{
+        display: list-item;
+        margin-left: 20px;
+      }
+    
+      .body{
+  
+        display: flex;
+    flex-direction: column;
+      }
+      .first{
+        display: flex;
+        
+      }
+      .content1{
+        margin: 10px;
+        background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 600px;
+      }
+      #postInput {
+            width: 100%;
+            box-sizing: border-box;
+            
+        }
+
+        .postDiv {
+            word-wrap: break-word;
+        }
+        .heartButton {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+        }
+        .quizAddDiv{
+        display: flex;
+    justify-content: center;
+    
+      }
+      } 
+      @media (max-width: 1000px){
+        @font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+  font-family: 'NanumSquareNeo-Variable';
+}
+        .container{
+        padding: 50px;
+
+        display: flex;
+        justify-content: center;
+      }
+      .top{
+       
+        margin-bottom: 10px;
+
+        display: flex;
+    flex-direction: column;
+        border-bottom: 1px solid;
+        width: 500px;
+        align-items: center;
+      }
+      .logo{
+
+        align-items: center;
+        display: block;
+        display: flex;
+      }
+      .menu1{
+        list-style: none;
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+      }
+      .nav{
+            margin-left: 20px;
+      }
+      .menu2{
+        display: list-item;
+        margin-left: 20px;
+      }
+    
+      .body{
+  
+        display: flex;
+    flex-direction: column;
+      }
+      .first{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .content1{
+        margin: 10px;
+        background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+      }
+      #postInput {
+            width: 100%;
+            box-sizing: border-box;
+            
+        }
+
+        .postDiv {
+            word-wrap: break-word;
+        }
+        .heartButton {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+        }
+        .quizAddDiv{
+        display: flex;
+    justify-content: center;
+    
+      }
+      } 
+      a{
+      text-decoration-line: none;
+     }
+     a:link{
+      color: black;
+     }
+     a:visited { color:black; }
+     a:hover { color:red; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="top">
+        <a href="/" class="logo">
+          <img style="height: 100px;" src="/main/img/logo.png" alt="로고">
+        </a>
+
+        <ul class="menu1">
+          <li class="nav-item">
+            <a href="/main/main.html" class="nav" aria-current="page">HOME</a>
+          </li>
+          <li class="menu2"><a href="/main/border.html" class="nav-link">개발일지</a></li>
+          <li class="menu2"><a href="#" class="nav-link">공지사항</a></li>
+          <li class="menu2"><a href="#" class="nav-link">dailyChek</a></li>
+          <li class="menu2"><a href="#" class="nav-link">로그인/회원가입</a></li>
+        </ul>
+    </div>
+    <!-- body -->
+    <div class="body">
+     <div class="first">
+<div class="content1">
+    <h1>개발 일지</h1>
+    <textarea
+      id="postInput"
+      rows="4"
+      cols="50"
+      placeholder="글을 작성하세요..."
+    ></textarea>
+
+    <div class="quizAddDiv">
+        <button id="quizAdd" onclick="uploadPost()"><img style="cursor: pointer;" id="buttonImg" src="/main/img/plus.png"/></button></div>
+
+    <div id="postList">
+      <!-- 업로드된 게시글이 여기에 나타날 것입니다. -->
+    </div>
+</div>
+
+  </div>
+  
+    </div>
+      
+<script src="/main/js/board.js"></script>
+  </body>
+</html>

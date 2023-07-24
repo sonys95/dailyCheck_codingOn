@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.calendar {
+  background-color: #fff;
+  border-radius: 8px;
+
+  padding: 20px;
+  width: 300px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+}
+
+.day {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.date {
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.date:hover {
+  background-color: #f0f0f0;
+}
+
+.today {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.schedule-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+.dayCheck {
+  display: flex;
+  margin-top: 15px;
+}
+#isDday {
+  width: 20px;
+  height: 20px;
+}
+.schedule-form input {
+  padding: 5px;
+  width: 300px;
+}
+.scheduleDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.schedule-form button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+#scheduleItemsList {
+  list-style: none;
+}
+.schedule-list {
+  margin-top: 20px;
+  width: 300px;
+  border-radius: 8px;
+
+  background-color: #fff;
+  padding: 20px;
+}
+#ddayItemsList {
+  list-style: none;
+}
+.dday-list {
+  background-color: #fff;
+  width: 300px;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+.date.has-schedule {
+  background-color: #f0ad4e; /* Use any desired color */
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.scheduleHead {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+.csheduleAddHead {
+  display: flex;
+}

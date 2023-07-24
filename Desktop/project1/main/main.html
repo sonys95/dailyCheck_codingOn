@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="/main/css/calendar.css" />
+    <link rel="stylesheet" href="/main/css/quiz.css" />
+    <link rel="stylesheet" href="/main/css/randomImg.css" />
     <style>
-      /* @media screen (max-width 720px){
-        
-      } */
-      .container{
-        /* max-width: 720; */
-
+      
+      @media (min-width: 1000px){
+        @font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+  font-family: 'NanumSquareNeo-Variable';
+}
+        .container{
         padding: 50px;
-        justify-content: space-around;
+        width: 1100px;
       }
       .top{
+       
         margin-bottom: 10px;
-        justify-content: center;
+
         display: flex;
         border-bottom: 1px solid;
       }
@@ -34,244 +43,422 @@
       }
       .menu2{
         display: list-item;
+        margin-left: 20px;
       }
-      .que{
-        justify-content: center;
+    
+      .body{
+  
         display: flex;
-      }
-      #content {
-        
-        width: 1000px;
-        height: 50px;
-
-        background: rgb(255, 255, 255);
-        border-left-width: 0;
-     border-right-width: 0;
-    border-top-width: 0;
-
-      }
-      .reg{
-        border-radius: 25px;
-    width: 50px;
-    height: 50px;
-      }
-      .tab{
-        display: flex;
-        padding: 50px;
     flex-direction: column;
       }
-      .dateDday{
+      .first{
+        display: flex;
+        justify-content: center;
+      }
+      .content1{
+        margin: 10px;
+        background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+      }
+      .quizAddDiv{
+        display: flex;
+    justify-content: center;
+      }
+      .content2{
+
         display: flex;
         flex-direction: row;
-        padding: 50px;
       }
-      .today{
-        width: 200px;
-        height: 200px;
-        border: 1px solid black;
-        border-radius: 25px;
+      .calendar{
+        margin: 10px;
+      }
+      .schedule{
+        margin: 10px;
+      }
+      .second{
+        display: flex;
+        justify-content: center;
+      }
+      .content3{
+
+        margin: 10px;
+
+
+      }
+      .mapDiv{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
       }
-      #today{
+      #map{
         padding: 15px;
+        height: 200px; 
+        width: 200px
       }
-      #todayDate{
-        padding: 30px;
-    font-size: 70px;
+      #weatherInfo{
+        background-color: white;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+      flex-direction: column;
+      justify-content: center;
+      }
+      .weatherIcon{
+        display: flex;
+        justify-content: center;
+      }
+      .content4{
+        margin-left: 10px;
+    background-color: white;
+    padding: 10px;
+    height: 380px;
+    border-radius: 8px;
+
+
+
+      }
+      .content5{
+        margin-left: 10px;
+    background-color: white;
+    padding: 10px;
+    height: 450px;
+    border-radius: 8px;
+      }
+      .csheduleAddHead1{
+        width: 250px;
+    display: flex;
+      }
+      #jobLogos{
+        height: 50px;
+        margin-bottom: 10px;
+      }
+      .jobLink{
+        align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+      }
+
+      } 
+      @media (max-width: 1000px){
+        @font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+  font-family: 'NanumSquareNeo-Variable';
+}
+        .container{
+        padding: 50px;
+
+        display: flex;
+        justify-content: center;
+      }
+      .top{
+       
+        margin-bottom: 10px;
+
+        display: flex;
+    flex-direction: column;
+        border-bottom: 1px solid;
+        width: 500px;
+        align-items: center;
+      }
+      .logo{
+
+        align-items: center;
+        display: block;
+        display: flex;
+      }
+      .menu1{
+        list-style: none;
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+      }
+      .nav{
+            margin-left: 20px;
+      }
+      .menu2{
+        display: list-item;
+        margin-left: 20px;
+      }
     
+      .body{
+  
+        display: flex;
+    flex-direction: column;
       }
-      .remain{
-        width: 300px;
-    height: 100px;
-        border: 1px solid black;
-        border-radius: 25px;
+      .first{
         display: flex;
         flex-direction: column;
+        align-items: center;
+      }
+      .content1{
+        margin: 10px;
+        background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+      }
+      .quizAddDiv{
+        display: flex;
+    justify-content: center;
+      }
+      .content2{
+
+        display: flex;
+        flex-direction: row;
+
+      }
+      .calendar{
+        margin: 10px;
+      }
+      .schedule{
+        margin: 10px;
+      }
+      .second{
+        display: flex;
+        flex-direction: column;
+    align-items: center;
+      }
+      .content3{
+
+        margin: 10px;
+       
+        display: flex;
+      
+      }
+      .mapDiv{
+        display: flex;
+
+      }
+      #map{
+        padding: 15px;
+        height: 200px; 
+        width: 200px
+      }
+      #weatherInfo{
+        background-color: white;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+      flex-direction: column;
+      justify-content: center;
+      }
+      .weatherIcon{
+        display: flex;
         justify-content: center;
-        text-align: center;
       }
-      #remain-time{
-        padding: 0px;
-    font-size: 25px;
+      .content4{
+        margin-left: 10px;
+    background-color: white;
+    padding: 10px;
+    height: 380px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+
       }
+      .content5{
+        margin-left: 10px;
+    background-color: white;
+    padding: 10px;
+    height: 450px;
+    border-radius: 8px;
+      }
+      .csheduleAddHead1{
+        width: 250px;
+    display: flex;
+      }
+      #jobLogos{
+        height: 50px;
+        margin-bottom: 10px;
+      }
+      .jobLink{
+        align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+      }
+      } 
+     a{
+      text-decoration-line: none;
+     }
+     a:link{
+      color: black;
+     }
+     a:visited { color:black; }
+     a:hover { color:red; }
     </style>
   </head>
   <body>
     <div class="container">
       <header class="top">
         <a href="/" class="logo">
-          <svg class="bi me-2" width="40" height="32">
-            <use xlink:href="#bootstrap"></use>
-          </svg>
-          <span class="fs-4">CODING SON</span>
+          <img style="height: 100px;" src="/main/img/logo.png" alt="로고">
         </a>
 
         <ul class="menu1">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">HOME</a>
+            <a href="/main/main.html" class="nav" aria-current="page">HOME</a>
           </li>
-          <li class="menu2"><a href="#" class="nav-link">NEWS</a></li>
-          <li class="menu2"><a href="#" class="nav-link">CHAT</a></li>
-          <li class="menu2"><a href="#" class="nav-link">PROGRAM</a></li>
-          <li class="menu2"><a href="#" class="nav-link">NOTICE</a></li>
+          <li class="menu2"><a href="/main/border.html" class="nav-link">개발일지</a></li>
+          <li class="menu2"><a href="#" class="nav-link">공지사항</a></li>
+          <li class="menu2"><a href="#" class="nav-link">dailyChek</a></li>
+          <li class="menu2"><a href="#" class="nav-link">로그인/회원가입</a></li>
         </ul>
     </div>
     <!-- body -->
-    
-   <div class="que">
-    <input
-      type="text"
-      id="content"
-      placeholder="오늘의 기술 문제를 작성해주세요."
-    />
-    <button class="reg" onclick="writeList()">작성</button>
-  </div>
-
-    <table class= "tab" >
-      <tr>
-        <td></td>
-        <!-- <td>작성자</td> -->
-        <td></td>
-        <td style="color: red;"></td>
-      </tr>
-    </table>
+    <div class="body">
+     <div class="first">
+<div class="content1">
+      <h1><img id="buttonImg" src="/main/img/quiz.png" "/>기술 면접을 뽀개자 <br>O, X 퀴즈</h1>
   
-  <!-- 오늘 날짜, D-day -->
-  <div class="dateDday">
-    <div class="today">
-      <div id="today">clock</div>
-      <div id="todayDate">clock</div>
+      <div id="quizList">
+        <!-- 생성된 퀴즈들 목록 -->
+      </div>
+  
+<div class="quizAddDiv">
+      <button id="quizAdd" onclick="showNewQuizSection()"><img style="cursor: pointer;" id="buttonImg" src="/main/img/plus.png"/></button>
     </div>
-    <div class="remain">
-      <div id="remain-time"></div>
-      <div>정보처리기사 필기 시험</div>
-    </div>
-  </div>
-  <div>
-    날짜 : <input type="text" id="clickDate" readonly /> <br />
-    내용 : <input type="text" id="addContent" /> <br />
-    <button type="button">작성</button> <br />
-  </div>
-  <div style="font-size: 2em; color: blue; text-align: center">
-    2022년 7월
-  </div>
-
-  <br />
-
-  <table align="center" width="500" style="text-align: center">
-    <tr>
-      <th>일</th>
-      <th>월</th>
-      <th>화</th>
-      <th>수</th>
-      <th>목</th>
-      <th>금</th>
-      <th>토</th>
-    </tr>
-    <tr>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p>1</p></td>
-      <td><p>2</p></td>
-    </tr>
-
-    <tr>
-      <td id="click"><p>3</p></td>
-      <td id="click"><p>4</p></td>
-      <td id="click"><p>5</p></td>
-      <td id="click"><p>6</p></td>
-      <td><p>7</p></td>
-      <td><p>8</p></td>
-      <td><p>9</p></td>
-    </tr>
-    <tr>
-      <td><p>10</p></td>
-      <td><p>11</p></td>
-      <td><p>12</p></td>
-      <td><p>13</p></td>
-      <td><p>14</p></td>
-      <td><p>15</p></td>
-      <td><p>16</p></td>
-    </tr>
-    <tr>
-      <td><p>17</p></td>
-      <td><p>18</p></td>
-      <td><p>19</p></td>
-      <td><p>20</p></td>
-      <td><p>21</p></td>
-      <td><p>22</p></td>
-      <td><p>23</p></td>
-    </tr>
-    <tr>
-      <td><p>24</p></td>
-      <td><p>25</p></td>
-      <td><p>26</p></td>
-      <td><p>27</p></td>
-      <td><p>28</p></td>
-      <td><p>29</p></td>
-      <td><p>30</p></td>
-    </tr>
-    <tr>
-      <td><p>31</p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-      <td><p></p></td>
-    </tr>
-  </table>
+      <div id="newQuizSection">
+        <p>질문: <input type="text" id="questionInput" style="width: 250px;" /></p>
 
 
-    <div class="p-5 mb-4  rounded-3 text-bg-white" style="border: 1px solid black;">
-      <div class="container-fluid py-5" style="background-image: url(/KDT-8-Web/img/개발자.jpg); background-repeat: no-repeat; background-position-x: right; ">
-        <h1 class="display-5 fw-bold">개발자가 되고 시포요</h1>
-        <p class="col-md-8 fs-4">우리는 개발자라는 업이 단순한 경제적 보상을 넘어, 삶의 방향키를 바꿀 수 있다고 믿습니다. 이러한 믿음 아래, 10년 후에도 현업에서 인정받는 탁월한 개발자를 양성하고자 합니다.
+        <p>
+          답변:
+          <button onclick="setAnswer('O')" id="answerO">O</button>
+          <button onclick="setAnswer('X')" id="answerX">X</button>
+          <input type="hidden" id="answerInput" />
+        </p>
+        <button onclick="addQuiz()">추가</button>
 
-            항해를 만들고 이끌어가는 모두는, 차원이 다른 실력과 진정성 넘치는 사람들로 한 개인의 삶을 바꾼다는 사명을 갖고 있습니다.</p>
-        <button class="btn btn-primary btn-lg" type="button">수강신청</button>
       </div>
     </div>
-
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
-          <h2>비전공자 개발자와 <br>대화하기</h2>
-          <p>늦었다'라는 것은 정말이지 상대적이다. 도전하는 사람에게 늦은 시기는 없다고 생각한다. 20살에 개발 공부를 시작하더라도 도전할 의지가 없다면 늦어 버린 건지도 모른다. 우리나라 사람들은 너무 마음이 급하다. 시작하기 전에 멀리 보이는 결승선</p>
-          <button class="btn btn-outline-light" type="button">수강신청</button>
+  
+    <div class="content2">
+      <div class="calendar">
+        <div class="header">
+          <button id="prevBtn">&lt;</button>
+          <h2 id="monthYear"></h2>
+          <button id="nextBtn">&gt;</button>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-body-tertiary border rounded-3" style="background-image: url(/KDT-8-Web/img/images.png); background-repeat: no-repeat;
-        background-size: cover;">
-          <h2>손영석 개발자님과 <br>나누는 향후 IT업계 이야기</h2>
-          <p>O인공지능(AI) 챗봇 챗GPT의 등장으로 급격한 AI 발전을 세계가 확인했다.
-            AI 중심의 혁신을 기대하며 많은 산업에서 열풍이 불어치는 한편, 일각에서는 AI로 인해 일자리를 잃을 수 있다는 우려도 나오고 있다.
-            특히, 관련 지식 없이 대화만으로도 코드를 작성하거나 간단한 웹 페이지나 앱을 만들 수 있어 개발자의 역할이 줄어들 수 있다는 전망도 나오고 있다.</p>
-          <button class="btn btn-outline-secondary" type="button">더보기</button>
+        <div class="days">
+          <div class="day">일</div>
+          <div class="day">월</div>
+          <div class="day">화</div>
+          <div class="day">수</div>
+          <div class="day">목</div>
+          <div class="day">금</div>
+          <div class="day">토</div>
         </div>
+        <div class="dates" id="datesContainer"></div>
+      </div>
+  
+      <!-- Schedule Form -->
+      <div class="schedule">
+      <div class="schedule-form" id="scheduleForm" style="display: none">
+        <div class="csheduleAddHead">
+          <img id="buttonImg" src="/main/img/schedule.png"/><h3 class="scheduleHead">일정 추가</h3>
+      </div>
+      <div>
+        <div>
+        <input
+          type="text"
+          id="scheduleInput"
+          placeholder="스케줄 내용을 입력하세요"
+        />
+      </div>
+      <div class="dayCheck">
+        <label for="isDday">D-Day:</label>
+        <input type="checkbox" id="isDday" />
+      </div>
+      <div class="scheduleDiv">
+        <button id="addScheduleBtn"><img id="buttonImg" src="/main/img/plus.png"/></button>
+      </div>
+      </div>
+      </div>
+  
+      <!-- Schedule List -->
+      <div class="schedule-list" id="scheduleList">
+        <div class="csheduleAddHead">
+          <img id="buttonImg" src="/main/img/list.png"/><h3 class="scheduleHead">오늘의 할일</h3>
+          </div>
+        <ul id="scheduleItemsList"></ul>
+        <p id="noScheduleMessage" style="display: none">
+          해당 날짜에 일정이 없습니다.
+        </p>
+      </div>
+  
+      <div class="dday-list">
+        <div class="csheduleAddHead">
+        <img id="buttonImg" src="/main/img/tictoc.png"/><h3 class="scheduleHead">D-day 얼마 안남았다!</h3>
+        </div>
+        <ul id="ddayItemsList"></ul>
+        <!-- Add the ID "ddayItemsList" here -->
+      </div>
       </div>
     </div>
-
-    <footer class="pt-3 mt-4 text-body-secondary border-top">
-      © 2023
-    </footer>
   </div>
-</main>
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <div class="second">
+  <div class="content3">
+    <div class="mapDiv">
+    <div id="map"></div>
 
-    
+    <div id="weatherInfo">
+      <div class="weatherIcon">
+      <img src="" alt="날씨 이미지" id="weatherIcon" /></div>
+      <p id="weatherDescription">날씨 정보가 표시됩니다.</p>
+      </div>
+    </div>
+    </div>
+    <body id="randomIge" onload="showRandomImage()">
+      <div class="content4"> 
+        <div class="csheduleAddHead1">
+          <img id="buttonImg" src="/main/img/job.png"/><h3 class="scheduleHead">오늘도 공고 확인해라<br>#개발자</h3>
+          </div>
+          <div class="jobLink">
+          <a href="https://www.jobkorea.co.kr/Search/?stext=%EA%B0%9C%EB%B0%9C%EC%9E%90" target=”_black”><img style="height: 80px;" src="/main/img/jobKorea.png" alt="잡코리아"/></a>
+          <a href="https://www.saramin.co.kr/zf_user/search?search_area=main&search_done=y&search_optional_item=n&searchType=default_popular&searchword=%EA%B0%9C%EB%B0%9C%EC%9E%90" target=”_black”><img id="jobLogos"src="/main/img/saramin.png" alt="사람인"/></a>
+          <a href="https://www.wanted.co.kr/search?query=%EA%B0%9C%EB%B0%9C%EC%9E%90" target=”_black”><img id="jobLogos" src="/main/img/wanted.png" alt="원티드"/></a>
+          <a href="https://www.jobplanet.co.kr/search?query=%EA%B0%9C%EB%B0%9C%EC%9E%90&category=search_new&search_keyword_hint_id=&_rs_con=seach&_rs_act=keyword_search" target=”_black”><img id="jobLogos" src="/main/img/jobplanet.jpg" alt="잡플래닛"/></a>
+        </div>
+        </div>
+      </body>
+      <div class="content5">
+        <div class="csheduleAddHead">
+          <img id="buttonImg" src="/main/img/funny.png"/><h3 class="scheduleHead">이거 보고 힘내라</h3>
+          </div>
+      
+      <img class="random-image" src="/main/img/random/1.jpg" alt="이미지 1" />
+      <img class="random-image" src="/main/img/random/2.jpeg" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/3.jpg" alt="이미지 3" />
+      <img class="random-image" src="/main/img/random/4.png" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/5.jpeg" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/6.jpg" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/7.jpeg" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/8.jpeg" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/9.jpeg" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/10.png" alt="이미지 2" />
+      <img class="random-image" src="/main/img/random/11.JPG" alt="이미지 2" />
+      
+      </div>
+    </div>
+   
+  </div>
+    </div>
+      <script src="/main/js/quiz.js"></script>
+  <script src="/main/js/calendar.js"></script>
+  <script src="/main/js/map.js"></script>
+  <script src="/main/js/randomImg.js"></script>
+</script>
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJy8gkdc-4xxx7vTH26W_ntzA-h-1ZzqE&callback=initMap"
+async
+defer
+></script>
+
   </body>
-  <script src="./js/quiz.js"></script>
-  <script src="./js/today.js"></script>
-  <script src="./js/dday.js"></script>
-  <script src="./js/calendar.js"></script>
-
- 
 </html>

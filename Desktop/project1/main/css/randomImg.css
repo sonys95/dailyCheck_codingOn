@@ -1,0 +1,12 @@
+.random-image {
+  display: none;
+  width: 400px;
+  height: 400px;
+}
+.show {
+  display: block;
+}
+#randomIge {
+  margin-left: 10px;
+  border-radius: 8px;
+}
